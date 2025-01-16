@@ -48,8 +48,8 @@ partial class MainForm
         addFileButton.Name = "addFileButton";
         addFileButton.Size = new System.Drawing.Size(147, 31);
         addFileButton.TabIndex = 1;
-        addFileButton.Text = "Ajouter";
-        addFileButton.UseVisualStyleBackColor = true;
+        addFileButton.Text = "Add";
+        addFileButton.UseVisualStyleBackColor = false;
         addFileButton.Click += addFileButton_Click;
         // 
         // removeFileButton
@@ -58,7 +58,7 @@ partial class MainForm
         removeFileButton.Name = "removeFileButton";
         removeFileButton.Size = new System.Drawing.Size(147, 31);
         removeFileButton.TabIndex = 2;
-        removeFileButton.Text = "Supprimer";
+        removeFileButton.Text = "Remove";
         removeFileButton.UseVisualStyleBackColor = true;
         removeFileButton.Click += removeFileButton_Click;
         // 
@@ -69,7 +69,7 @@ partial class MainForm
         extractButton.Name = "extractButton";
         extractButton.Size = new System.Drawing.Size(488, 35);
         extractButton.TabIndex = 4;
-        extractButton.Text = "Extraire";
+        extractButton.Text = "Extract";
         extractButton.UseVisualStyleBackColor = true;
         extractButton.Click += extractButton_Click;
         // 

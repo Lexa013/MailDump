@@ -48,7 +48,7 @@ public partial class MainForm : Form
         using (var folderBrowser = new FolderBrowserDialog())
         {
             folderBrowser.ShowNewFolderButton = false;
-            folderBrowser.Description = "Sélectionner le dossier d'extraction";
+            folderBrowser.Description = "Select destination folder";
 
             if (folderBrowser.ShowDialog() != DialogResult.OK)
                 return;
@@ -68,14 +68,13 @@ public partial class MainForm : Form
                 {
                     File.Move(output!, Path.Combine(_saveFileFolderPath, Path.GetFileName(output!)), true);
                 }
-                catch (Exception exception)
+                catch (Exception)
                 {
                     Console.WriteLine($"Failed to move file: {output}");
-                    continue;
                 }
             }
             
-            MessageBox.Show("Extraction terminée", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Successfully extracted files", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         } 
     }
     
@@ -87,9 +86,9 @@ public partial class MainForm : Form
         {
             fileInfo = new FileInfo(filePath);
         }
-        catch (Exception e)
+        catch (Exception)
         {
-            Console.WriteLine($"Failed to create file info for: {(string)filePath}");
+            Console.WriteLine($"Failed to create file info for: {filePath}");
             return null;
         }
         
@@ -115,7 +114,7 @@ public partial class MainForm : Form
                 convertProcess.WaitForExit();
             });
         }
-        catch (Exception e)
+        catch (Exception)
         {
             Console.WriteLine($"Failed to convert eml file to pdf: {fileName}");
             return null;
@@ -130,7 +129,7 @@ public partial class MainForm : Form
         {
             message = Message.Load(fileInfo);
         }
-        catch (Exception e)
+        catch (Exception)
         {
             Console.WriteLine($"Failed to load .eml file to get attachements: {fileName}");
             return originalPath;
@@ -166,7 +165,7 @@ public partial class MainForm : Form
             {
                 original.Save(originalPath);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.WriteLine($"Failed to save file to pdf: {fileName}");
             }
@@ -178,7 +177,7 @@ public partial class MainForm : Form
             {
                 File.Delete(pdfFilePath);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.WriteLine($"Failed to delete temp file: {pdfFilePath}");
                 return originalPath;
